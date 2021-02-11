@@ -13,19 +13,21 @@ class SettingsView: UIViewController {
     @IBOutlet weak var DirectionSwitch: UISwitch!
     
     @IBAction func EdgeSwipeSelector(_ sender: Any) {
-        isLow = DirectionSwitch.isOn
+//        isLow = DirectionSwitch.isOn
         isHighSpeed = SpeedSwitch.isOn
         let transition = CATransition()
         transition.duration = 0.4
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
-        dismiss(animated: false, completion: nil)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SpeedSwitch.isOn = isHighSpeed
     }
 }

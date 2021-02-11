@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,7 @@
 		3B4A3CD82059467D00A492C5 /* EV3_RemoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A3CD72059467D00A492C5 /* EV3_RemoteTests.swift */; };
 		3B4A3CE32059467D00A492C5 /* EV3_RemoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A3CE22059467D00A492C5 /* EV3_RemoteUITests.swift */; };
 		3B4A3D21205947C900A492C5 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A3D20205947C900A492C5 /* ConnectionManager.swift */; };
-		3B4A3D23205963E200A492C5 /* EV3SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A3D24205963E200A492C5 /* EV3SDK.framework */; };
-		3B4A3D26205963E900A492C5 /* EV3SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A3D24205963E200A492C5 /* EV3SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B599CFB25D5B22300675DE0 /* EV3SDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3B599CFA25D5B22300675DE0 /* EV3SDK */; };
 		3BDE6041205C8E2B009F3E6D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDE6040205C8E2B009F3E6D /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,20 +35,6 @@
 			remoteInfo = "EV3 Bridging";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3B4A3D1F205946D500A492C5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3B4A3D26205963E900A492C5 /* EV3SDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B4A3CBF2059467D00A492C5 /* EV3 Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EV3 Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4A3D23205963E200A492C5 /* EV3SDK.framework in Frameworks */,
+				3B599CFB25D5B22300675DE0 /* EV3SDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,13 +153,15 @@
 				3B4A3CBB2059467D00A492C5 /* Sources */,
 				3B4A3CBC2059467D00A492C5 /* Frameworks */,
 				3B4A3CBD2059467D00A492C5 /* Resources */,
-				3B4A3D1F205946D500A492C5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "EV3 Remote";
+			packageProductDependencies = (
+				3B599CFA25D5B22300675DE0 /* EV3SDK */,
+			);
 			productName = "EV3 Bridging";
 			productReference = 3B4A3CBF2059467D00A492C5 /* EV3 Remote.app */;
 			productType = "com.apple.product-type.application";
@@ -222,20 +209,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Adam Kopeć";
 				TargetAttributes = {
 					3B4A3CBE2059467D00A492C5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 					3B4A3CD22059467D00A492C5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3B4A3CBE2059467D00A492C5;
 					};
 					3B4A3CDD2059467D00A492C5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3B4A3CBE2059467D00A492C5;
 					};
@@ -250,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 3B4A3CB62059467D00A492C5;
+			packageReferences = (
+				3B599CF925D5B22200675DE0 /* XCRemoteSwiftPackageReference "ev3ios" */,
+			);
 			productRefGroup = 3B4A3CC02059467D00A492C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -376,6 +369,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -401,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -435,6 +429,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -454,10 +449,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -469,10 +465,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 Remote/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/PlugIns";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/PlugIns",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-Bridging";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -484,10 +484,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 Remote/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/PlugIns";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/PlugIns",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-Bridging";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -500,10 +504,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 RemoteTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-BridgingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EV3 Remote.app/EV3 Remote";
 			};
@@ -517,10 +525,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 RemoteTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-BridgingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EV3 Remote.app/EV3 Remote";
 			};
@@ -533,10 +545,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 RemoteUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-BridgingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "EV3 Bridging";
 			};
@@ -549,10 +565,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S73MBXSV7H;
 				INFOPLIST_FILE = "EV3 RemoteUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "adamkopec.EV3-BridgingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "EV3 Bridging";
 			};
@@ -598,6 +618,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B599CF925D5B22200675DE0 /* XCRemoteSwiftPackageReference "ev3ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/admkopec/ev3ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B599CFA25D5B22300675DE0 /* EV3SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B599CF925D5B22200675DE0 /* XCRemoteSwiftPackageReference "ev3ios" */;
+			productName = EV3SDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B4A3CB72059467D00A492C5 /* Project object */;
 }
